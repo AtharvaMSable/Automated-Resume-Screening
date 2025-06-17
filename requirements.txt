@@ -1,0 +1,37 @@
+# requirements.txt for Smart Resume Analyzer (Deep Learning Version)
+
+streamlit>=1.10.0
+pandas>=1.4.0
+scikit-learn>=1.0.0  # For TF-IDF, ML model loading, cosine_similarity
+nltk>=3.7
+pypdf>=3.1.0         # For PDF text extraction (replaces pdfminer.six if you switched fully)
+# OR if still using pdfminer.six based pdf_reader:
+# pdfminer.six>=20221105
+python-docx>=0.8.11  # For DOCX text extraction
+Pillow>=9.0.0        # Image handling, often a dependency
+streamlit-tags>=1.2.5
+pymysql>=1.0.0       # If using database functionality
+plotly>=5.5.0        # For charts in the admin panel
+numpy>=1.21.0        # Numerical operations, used for argmax with model predictions
+
+# Deep Learning Libraries
+spacy>=3.0.0
+# Note: The spaCy model (e.g., en_core_web_sm) must be downloaded separately:
+# python -m spacy download en_core_web_sm
+
+transformers[sentencepiece]>=4.20.0 # For summarization pipeline, sentencepiece often useful for tokenizers
+# Choose one backend for Transformers:
+torch>=1.10.0        # PyTorch backend (recommended for many Hugging Face models)
+# OR
+# tensorflow>=2.8.0  # TensorFlow backend (if you prefer/configured it)
+
+# Optional: If you implemented semantic similarity with Sentence-BERT (Option 1 from earlier discussion)
+# sentence-transformers>=2.2.0
+
+# Optional: If you still use pyresparser for anything (e.g., basic info extraction as a fallback)
+# pyresparser>=0.6
+
+# If you keep the commented-out video features or use them:
+# pafy>=0.5.5
+# youtube-dl>=2021.12.17 # or yt-dlp
+# yt-dlp>=2023.03.04
