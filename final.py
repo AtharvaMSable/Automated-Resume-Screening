@@ -54,8 +54,12 @@ st.set_page_config(
 # --- Download necessary NLTK data ---
 @st.cache_resource
 def download_nltk_data():
-    try: nltk.data.find('corpora/stopwords')
-    except nltk.downloader.DownloadError: nltk.download('stopwords')
+    try:
+        nltk.data.find('corpora/stopwords')
+    except LookupError:
+        # fallback: download manually (won't work on Streamlit Cloud)
+        nltk.download('stopwords')
+
 download_nltk_data()
 # Update UI after cache call if needed (optional)
 # st.sidebar.info("NLTK Check Done.")
