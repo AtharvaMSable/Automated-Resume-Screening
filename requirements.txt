@@ -19,6 +19,7 @@ spacy>=3.0.0
 # Note: The spaCy model (e.g., en_core_web_sm) must be downloaded separately:
 # python -m spacy download en_core_web_sm
 
+sentencepiece==0.1.99
 transformers[sentencepiece]>=4.20.0 # For summarization pipeline, sentencepiece often useful for tokenizers
 # Choose one backend for Transformers:
 torch>=1.10.0        # PyTorch backend (recommended for many Hugging Face models)
